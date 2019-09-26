@@ -12,8 +12,10 @@ function App() {
   const [ ciudad, guardarCiudad ] = useState ('');
   const [ pais, guardarPais ] = useState('');
   const [ error, guardarError ] = useState(false);
+  const [ resultado, guardarResultado ] = useState({})
   
   useEffect(() => {
+   
     // prevenir ejecucion
     if(ciudad ==='') return;
     const consultarAPI = async () => {
@@ -21,14 +23,15 @@ function App() {
    
       const appId = '27f11d4f920dfb17807a15ef5f15e40b';
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad},${pais}&appid=${appId}`
+      
       //  consultar url
       const respuesta = await fetch(url);
       const resultado = await respuesta.json();
-      console.log(resultado)
+      guardarResultado(resultado);
     }
     consultarAPI();
   },[ ciudad, pais ]); 
-  // AQUI NOS QUEDAMOS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!//
+  
 
   const datosConsulta = datos =>{
     // validar que esten los dos datos

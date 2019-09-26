@@ -1,10 +1,10 @@
 import React from 'react'
-import { id } from 'postcss-selector-parser';
+// import { id } from 'postcss-selector-parser';
 
 
 
 function Clima({resultado}){
-    console.log(resultado)
+   
     
     // extraer valores
     const { name, main } = resultado;

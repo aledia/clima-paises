@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Formulario from "./components/Formulario";
 import Error from "./Error";
+import Clima from "./components/Clima";
+
 
 
 function App() {
@@ -54,7 +56,9 @@ function App() {
        }
       //  si no hay error mostrar el clima
       else{
-          componente = null;
+          componente = <Clima
+                          resultado={resultado}
+                          />
       }
 
 
